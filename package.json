@@ -1,0 +1,30 @@
+{
+  "name": "github-connector",
+  "version": "0.0.1",
+  "description": "A connector to Github which could perform search on different resources.",
+  "main": "app.js",
+  "scripts": {
+    "start": "grunt run",
+    "start:production": "grunt run:production"
+  },
+  "author": "Daniel Wang",
+  "license": "Apache License 2.0",
+  "dependencies": {
+    "bluebird": "3.5.0",
+    "body-parser": "1.17.2",
+    "colors": "1.1.2",
+    "compression": "1.7.0",
+    "express": "4.15.3",
+    "github": "9.2.0",
+    "innjector": "0.0.2",
+    "lodash": "4.17.4",
+    "node-cache": "4.1.1"
+  },
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-env": "0.4.4",
+    "grunt-express-server": "0.5.3",
+    "load-grunt-tasks": "3.5.2"
+  }
+}

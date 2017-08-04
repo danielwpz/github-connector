@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.github";
+option java_outer_classname = "RouteGuideProto";
+option objc_class_prefix = "RTG";
+
+package github;
+
+service GitHub {
+    rpc GetDefinition(Request.Empty) returns (Response.ProtoDefinition) {}
+
+    rpc GetAllRepos(Request.GetRepo) returns (Response.Repos) {}
+}
+
+message Request {
+    message Empty {}
+    message GetRepo {
+        string visibility = 1;
+        string affiliation = 2;
+        string type = 3;
+        string sort = 4;
+        int32  page = 5;
+        int32  pageSize = 6;
+        Identity identity = 7;
+    }
+}
+
+message Response {
+    message ProtoDefinition {
+        string content = 1;
+    }
+    message Repos {
+        repeated Repo repos = 1;
+        int32 page = 2;
+        bool hasNext = 3;
+    }
+}
+
+message Repo {
+    string id = 1;
+    string name = 2;
+    string fullName = 3;
+    bool private = 4;
+    User owner = 5;
+    string htmlUrl = 6;
+    string url = 7;
+    string description = 8;
+}
+
+message Identity {
+    User user = 1;
+}
+
+message User {
+    string login = 1;
+    string id = 2;
+    string url = 3;
+    string htmlUrl = 4;
+}
